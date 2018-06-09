@@ -1,0 +1,12 @@
+server:
+  port: 80
+  context-path: /nanWu
+
+mybatis:
+  mapper-locations: "classpath:mapper/*Mapper.xml"
+
+spring:
+  profiles:
+    active: dev
+
+
