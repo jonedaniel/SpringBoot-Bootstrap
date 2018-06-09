@@ -1,7 +1,6 @@
 server:
-  port: 80
-  context-path: /nanWu
-
+  port: 8080
+  context-path: ""
 mybatis:
   mapper-locations: "classpath:mapper/*Mapper.xml"
 

@@ -62,8 +62,7 @@ public class SysLogAspect {
     }
 
     @After(pointCut)
-    public void doAfter() {
-    }
+    public void doAfter() {}
 
     @AfterReturning(returning = "result", pointcut = pointCut)
     public void doAfterReturning(Object result) {

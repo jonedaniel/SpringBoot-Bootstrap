@@ -75,6 +75,7 @@
     </dependencies>
 
 	<build>
+		<finalName>tree-dev</finalName>
 		<plugins>
 			<!--用于打包和启动springBoot应用的插件-->
 			<plugin>

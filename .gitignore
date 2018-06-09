@@ -34,3 +34,4 @@ build/
 generatorConfig.xml
 application.properties
 application-dev.yml
+.well-known
