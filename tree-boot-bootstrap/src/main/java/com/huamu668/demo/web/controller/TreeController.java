@@ -27,6 +27,11 @@ public class TreeController {
         model.addAttribute("now", new Date());
     }
 
+    @RequestMapping(method = RequestMethod.GET,value="/")
+    public String index() {
+        return "redirect:/index";
+    }
+
     @RequestMapping(method = RequestMethod.GET,value = "/index")
     public String index(Model model) {
         model.addAttribute("list", treeService.getAll());

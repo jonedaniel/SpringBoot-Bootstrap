@@ -33,5 +33,6 @@ overlays/
 build/
 generatorConfig.xml
 application.properties
-application-dev.yml
-.well-known
+application-prod.yml
+.well-known/
+WeChatUtil.java
