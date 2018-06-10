@@ -27,7 +27,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class SysLogAspect {
     private final static String pointCut = "(execution(public * com.huamu668.demo.web.controller.*.*(..))"+
-                    "&& !execution(public *  com.huamu668.demo.web.controller.*.init(..)))";
+                    "&& !execution(public *  com.huamu668.demo.web.controller.*.init(..))"+
+            "&& !execution(public *  com.huamu668.demo.web.controller.*.indexEmpty(..)))";
 
     private ConcurrentHashMap<String, Object> map = new ConcurrentHashMap();
 

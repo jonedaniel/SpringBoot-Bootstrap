@@ -28,7 +28,7 @@ public class TreeController {
     }
 
     @RequestMapping(method = RequestMethod.GET,value="/")
-    public String index() {
+    public String indexEmpty() {
         return "redirect:/index";
     }
 

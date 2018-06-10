@@ -6,6 +6,6 @@ mybatis:
 
 spring:
   profiles:
-    active: prod
+    active: dev
 
 
