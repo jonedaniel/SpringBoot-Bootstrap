@@ -1,7 +1,6 @@
 package com.huamu668.demo.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
 import java.beans.PropertyDescriptor;
@@ -10,8 +9,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 
+@Slf4j
 public class BeanMapUtils {
-    private static Log logger = LogFactory.getLog(BeanMapUtils.class);
 
     public static Object getMap2Bean(Map map, Class<?> beanClass) {
         if (map == null) {
@@ -49,6 +48,12 @@ public class BeanMapUtils {
                                             new Object[]{StringUtils.isEmpty(map.get(field.getName()).toString()) ? ""
                                                     : DateUtils.reverse2SqlDate(dateStr)});
                                 }
+                            } else if (("Byte".equals(field.getType().getSimpleName()))
+                                    || ("byte".equals(field.getType().getSimpleName()))) {
+                                method.invoke(inst,
+                                        new Object[]{StringUtils.isEmpty(map.get(field.getName()).toString()) ? ""
+                                                : Byte.valueOf(
+                                                Byte.parseByte(map.get(field.getName()).toString()))});
                             } else if (("Integer".equals(field.getType().getSimpleName()))
                                     || ("int".equals(field.getType().getSimpleName()))) {
                                 method.invoke(inst,
@@ -76,12 +81,12 @@ public class BeanMapUtils {
                             }
                         }
                     } catch (Exception e) {
-                        logger.error(e);
+                        log.error(e.getMessage());
                     }
                 }
             }
         } catch (Exception e) {
-            logger.error(e);
+            log.error(e.getMessage());
         }
         return inst;
     }
@@ -109,12 +114,12 @@ public class BeanMapUtils {
                             map.put(field.getName(), "");
                         }
                     } catch (Exception e) {
-                        logger.error(e);
+                        log.error(e.getMessage());
                     }
                 }
             }
         } catch (Exception e) {
-            logger.error(e);
+            log.error(e.getMessage());
         }
         return map;
     }

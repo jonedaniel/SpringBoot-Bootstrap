@@ -8,15 +8,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AjaxResult {
-    public final static String SUCCESS = "success";
-    public final static String FAIL = "fail";
+    public final static Integer SUCCESS = 0;
+    public final static Integer FAIL = 1;
+    public final static Integer WX_TOKEN = 2;
 
-    private String status = SUCCESS;
+    private Integer code = SUCCESS;
     private String desc = "请求成功";
     private Object data = null;
 
-    public AjaxResult(String status, String desc) {
-        this.status = status;
+    public AjaxResult(Integer code, String desc) {
+        this.code = code;
         this.desc = desc;
     }
 }

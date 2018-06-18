@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huamu668.demo.mapper.WxUserMapper" >
+  <resultMap id="BaseResultMap" type="com.huamu668.demo.domain.WxUser" >
+    <id column="id" property="id" />
+    <result column="union_id" property="unionId" />
+    <result column="open_id" property="openId" />
+    <result column="city" property="city" />
+    <result column="country" property="country" />
+    <result column="gender" property="gender" />
+    <result column="nick_name" property="nickName" />
+    <result column="province" property="province" />
+    <result column="avatar_url" property="avatarUrl" />
+    <result column="create_date" property="createDate" />
+    <result column="update_date" property="updateDate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update `wx_user`
+            set delete_flg = 'Y'
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.huamu668.demo.domain.WxUser" useGeneratedKeys="true" keyProperty="id" >
+    insert into `wx_user` (union_id, open_id, city, country, gender, nick_name, province, 
+      avatar_url, create_date, update_date)
+    values (#{unionId}, #{openId}, #{city}, #{country}, #{gender}, #{nickName}, #{province}, 
+      #{avatarUrl}, #{createDate}, #{updateDate})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.huamu668.demo.domain.WxUser" >
+    update `wx_user`
+    set union_id = #{unionId},
+      open_id = #{openId},
+      city = #{city},
+      country = #{country},
+      gender = #{gender},
+      nick_name = #{nickName},
+      province = #{province},
+      avatar_url = #{avatarUrl},
+      create_date = #{createDate},
+      update_date = #{updateDate},
+      delete_flg = #{deleteFlg}
+    where id = #{id} and delete_flg = 'N'
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, union_id, open_id, city, country, gender, nick_name, province, avatar_url, 
+    create_date, update_date, delete_flg
+    from `wx_user`
+    where id = #{id} and delete_flg = 'N'
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, union_id, open_id, city, country, gender, nick_name, province, avatar_url, 
+    create_date, update_date, delete_flg
+    from `wx_user`
+    where delete_flg = 'N'
+  </select>
+  <select id="selectByOpenId" resultMap="BaseResultMap">
+    select id, union_id, open_id, city, country, gender, nick_name, province, avatar_url,
+      create_date, update_date, delete_flg
+    from `wx_user`
+    where delete_flg = 'N' and open_id = #{openid}
+  </select>
+</mapper>
