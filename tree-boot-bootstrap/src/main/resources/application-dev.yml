@@ -1,13 +1,17 @@
+MyIP: 127.0.0.1
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/tree_dev?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://${MyIP}:3306/tree_dev?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: admin
   devtools:
     livereload:
       enabled: true
+  redis:
+      host: ${MyIP}
+      port: 6379
 logging:
   level:
     root: warn

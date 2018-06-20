@@ -1,4 +1,4 @@
-package com.huamu668.demo.util;
+package com.huamu668.demo.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
