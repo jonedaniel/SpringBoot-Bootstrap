@@ -128,7 +128,7 @@ public class BeanMapUtils {
         if (list == null || list.size() == 0) {
             return null;
         }
-        List<Object> result = new ArrayList<>();
+        List<Object> result = new ArrayList<Object>();
         for (Map m : list) {
             Object o = getMap2Bean(m, beanClass);
             result.add(o);
@@ -140,7 +140,7 @@ public class BeanMapUtils {
         if (list == null || list.size() == 0) {
             return null;
         }
-        List<Map> result = new ArrayList<>();
+        List<Map> result = new ArrayList<Map>();
         for (Object o : list) {
             Map m = getBean2Map(o);
             result.add(m);

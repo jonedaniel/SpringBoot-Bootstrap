@@ -2,6 +2,7 @@ package com.huamu668.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.huamu668.demo.service.IWxUserService;
+import com.huamu668.demo.util.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,14 @@ import java.util.UUID;
 public class DemoApplicationTest {
     @Autowired
     private IWxUserService wxUserService;
+    @Autowired
+    private RedisService redisService;
+
+    @Test
+    public void testRedis() {
+        redisService.set("name", "zmh");
+        System.out.println(redisService.get("name"));
+    }
 
     @Test
     public void test1() {

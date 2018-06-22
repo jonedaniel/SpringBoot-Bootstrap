@@ -4,12 +4,15 @@ import com.huamu668.demo.domain.Tree;
 import com.huamu668.demo.service.ITreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.HtmlUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -23,58 +26,69 @@ public class TreeController {
 
     @ModelAttribute
     public void init(Model model) {
-        model.addAttribute("ctx",ctx);
+        model.addAttribute("ctx", ctx);
         model.addAttribute("now", new Date());
     }
 
-    @RequestMapping(method = RequestMethod.GET,value="/")
+    @MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    public String greeting(String message) throws Exception {
+        return new SimpleDateFormat("HH:mm:ss").format(new Date()) + ": " + HtmlUtils.htmlEscape(message);
+    }
+
+    @GetMapping("/chat")
+    public String chat() {
+        return "chat";
+    }
+
+    @GetMapping("/")
     public String indexEmpty() {
         return "redirect:/index";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/index")
+    @GetMapping("/index")
     public String index(Model model) {
         model.addAttribute("list", treeService.getAll());
         return "index";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/about")
+    @GetMapping("/about")
     public String about(Model model) {
         return "about";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/contact")
+    @GetMapping("/contact")
     public String contact(Model model) {
         return "contact";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/gallery")
+    @GetMapping("/gallery")
     public String gallery(Model model) {
         return "gallery";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/grid")
+    @GetMapping("/grid")
     public String grid(Model model) {
         return "grid";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/login")
+    @GetMapping("/login")
     public String login(Model model) {
         return "login";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/registration")
+    @GetMapping("/registration")
     public String registration(Model model) {
         return "registration";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/services")
+    @GetMapping("/services")
     public String services(Model model) {
         return "services";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/single")
-    public String single(Model model,String name) {
+    @GetMapping("/single")
+    public String single(Model model, String name) {
         Tree tree = treeService.getByName(name);
         model.addAttribute("tree", tree);
         return "single";

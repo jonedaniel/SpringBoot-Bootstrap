@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -41,7 +42,7 @@ public class SysLogAspect {
 
     @Before(pointCut)
     public void doBefore(JoinPoint joinPoint) {
-        HttpServletRequest request = UserContext.getRequest();
+        Optional<HttpServletRequest> request = Optional.ofNullable(UserContext.getRequest());
         log.warn("\n请求开始>>>>>\n" +
                         "请求的链接={},\n" +
                         "请求的接口={}，\n" +
@@ -49,16 +50,16 @@ public class SysLogAspect {
                         "ip={},\n" +
 //                        "username={}\n" +
                         "sql:",
-                request.getRequestURL(),
+                request.isPresent()?request.get().getRequestURL():"chat",
                 joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName(),
                 joinPoint.getArgs(),
-                UserContext.getIpAddress());
+                request.isPresent()?UserContext.getIpAddress():"chat");
 //                UserContext.getUsername());
 
         map.put("requestTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ").format(new Date()));
         map.put("requestMethod", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        map.put("requestUrl",request.getRequestURL());
-        map.put("ip", UserContext.getIpAddress());
+        map.put("requestUrl",request.isPresent()?request.get().getRequestURL():"chat");
+        map.put("ip", request.isPresent()?UserContext.getIpAddress():"chat");
         map.put("startTime", System.currentTimeMillis());
     }
 

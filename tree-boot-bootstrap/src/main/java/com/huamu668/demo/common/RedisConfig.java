@@ -3,7 +3,6 @@ package com.huamu668.demo.common;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -41,13 +40,10 @@ public class RedisConfig extends CachingConfigurerSupport {
         };
     }
 
-    /**
-     * 管理缓存
-     */
+    //缓存管理器
     @Bean
-    public CacheManager cacheManager(RedisTemplate redisTemplate) {
-        RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
-        return rcm;
+    public RedisCacheManager cacheManager(RedisConnectionFactory jedisConnectionFactory) {
+        return RedisCacheManager.create(jedisConnectionFactory);
     }
 
     /**

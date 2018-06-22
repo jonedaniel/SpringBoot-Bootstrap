@@ -10,11 +10,19 @@ import javax.servlet.http.HttpSession;
 public class UserContext {
 
     public static HttpServletRequest getRequest() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        try {
+            return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        } catch (NullPointerException n) {
+            return null;
+        }
     }
 
     public static HttpServletResponse getResponse() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        try {
+            return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        } catch (NullPointerException n) {
+            return null;
+        }
     }
 
     public static HttpSession getSession() {
