@@ -40,7 +40,7 @@ public class WeChatController {
     public AjaxResult checkToken(String token) {
         WxUser wxUser = (WxUser)redisService.get(token);
         if (wxUser!=null) {
-            return new AjaxResult(AjaxResult.SUCCESS, "检查token通过", null);
+            return new AjaxResult(AjaxResult.SUCCESS, "检查token通过", wxUser);
         }
         return new AjaxResult(AjaxResult.FAIL, "不存在此token", null);
     }
@@ -62,13 +62,13 @@ public class WeChatController {
                 Map map = new HashMap();
                 map.put("token", token);
                 map.put("uid", wxUser.getId());
-                redisService.set(token,wxUser,1800L);
+                redisService.set(token,wxUser,1800L);//一个月的token 2592000L
                 return new AjaxResult(AjaxResult.WX_TOKEN, "生成Token", map);
             }
             return new AjaxResult(AjaxResult.SUCCESS, "去注册", strResult);
         } catch (Exception e) {
             e.printStackTrace();
-            return new AjaxResult(AjaxResult.FAIL, "请求失败", null);
+            return new AjaxResult(AjaxResult.FAIL, "请求login接口失败", null);
         }
     }
 

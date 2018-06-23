@@ -7,7 +7,7 @@
     <script src="${ctx}/js/jquery-3.2.1.js"></script>
     <script src="${ctx}/js/sockjs.min.js"></script>
     <script src="${ctx}/js/stomp.min.js"></script>
-    <script src="${ctx}/js/app.js"></script>
+    <script src="${ctx}/js/chat.js"></script>
 </head>
 <body>
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
@@ -16,14 +16,12 @@
 <div id="main-content" class="container">
     <div class="row">
         <div class="col-md-6">
-            <form class="form-inline">
                 <div class="form-group">
                     <label for="connect">WebSocket connection:</label>
                     <button id="connect" class="btn btn-default" type="submit">Connect</button>
                     <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
                     </button>
                 </div>
-            </form>
         </div>
         <div class="col-md-6">
             <form class="form-inline">
