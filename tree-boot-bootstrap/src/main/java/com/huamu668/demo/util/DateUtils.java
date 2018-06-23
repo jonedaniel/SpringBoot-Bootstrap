@@ -23,6 +23,10 @@ public class DateUtils {
         return FormatDatetime("yyyy-MM-dd", new Date());
     }
 
+    public static final String nowDay() {
+        return new SimpleDateFormat(FORMAT_1).format(new Date());
+    }
+
     public static final String FormatDatetime(String s, Date date) {
         SimpleDateFormat simpledateformat = new SimpleDateFormat(s);
         return simpledateformat.format(date);

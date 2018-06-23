@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -73,7 +74,7 @@ public class WeChatController {
     }
 
     @GetMapping("/register")
-    public AjaxResult register(String code, String encryptedData, String iv) {
+    public AjaxResult register(String code, String encryptedData, String iv) throws IOException {
         String sessionKey = (String) ((Map) JSON.parse(HttpUtil.get(WeChatUtil.WX_LOGIN.replace("JSCODE", code)))).get("session_key");
         Map    userInfo   = WeChatUtil.getUserInfo(encryptedData, sessionKey, iv);
         wxUserService.register(userInfo);

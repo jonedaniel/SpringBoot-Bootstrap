@@ -6,6 +6,9 @@ import java.util.Date;
 
 @Data
 public class WxUser {
+    public static final String MACHINE_PATH = "/home/web/wximages/";
+    public static final String NET_PATH = "http://huamu668.com/wximages/";
+
     private Long   id;
     private String unionId;
     private String openId;
@@ -17,4 +20,5 @@ public class WxUser {
     private String avatarUrl;
     private Date   createDate;
     private Date   updateDate;
+    private String image;
 }

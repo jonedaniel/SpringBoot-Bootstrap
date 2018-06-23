@@ -29,11 +29,10 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/websocket")
+                .setAllowedOrigins("*");
+        registry.addEndpoint("/websocket/socketjs")
                 .setAllowedOrigins("*")
-                .addInterceptors(myHandshakeInterceptor());
-        /*        registry.addEndpoint("/websocket/socketjs")
-                .setAllowedOrigins("*")
-                .withSockJS();*/
+                .withSockJS();
     }
 
     @Bean
@@ -47,6 +46,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     }
 
 }
+
 class MyHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
@@ -62,11 +62,11 @@ class MyHandshakeInterceptor implements HandshakeInterceptor {
 
     }
 }
+
 class MyHandShakeHandler implements HandshakeHandler {
 
     @Override
-    public boolean doHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Map<String, Object> map) throws HandshakeFailureException {
-        System.out.println("HandshakeHandler work");
-        return true;
+    public boolean doHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws HandshakeFailureException {
+        return false;
     }
 }
