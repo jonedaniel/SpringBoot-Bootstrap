@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class WxUserServiceImpl implements IWxUserService {
@@ -22,7 +23,7 @@ public class WxUserServiceImpl implements IWxUserService {
     public void register(Map map) throws IOException {
         WxUser user = (WxUser) BeanMapUtils.getMap2Bean(map, WxUser.class);
         user.setCreateDate(new Date());
-        String filePath = user.getNickName() + DateUtils.nowDay() + ".png";
+        String filePath = user.getNickName()+UUID.randomUUID().toString().substring(0,4) + DateUtils.nowDay() + ".png";
         HttpUtil.download(user.getAvatarUrl(), WxUser.MACHINE_PATH + filePath);
         user.setImage(WxUser.NET_PATH + filePath);
         wxUserMapper.insert(user);
