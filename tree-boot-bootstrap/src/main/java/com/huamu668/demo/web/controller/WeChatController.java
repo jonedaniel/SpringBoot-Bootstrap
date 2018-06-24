@@ -46,6 +46,15 @@ public class WeChatController {
         return new AjaxResult(AjaxResult.FAIL, "不存在此token", null);
     }
 
+    /**
+     *  获取过去5条聊天记录
+     * @createDate 2018/6/24
+     * @author zmh email: zmhzhaomenghui@gmail.com
+     */
+    @GetMapping("chatCache")
+    public AjaxResult chatCache() {
+        return new AjaxResult(AjaxResult.SUCCESS, "返回聊天记录",redisService.getChatCache("chatCache"));
+    }
 
     @GetMapping("login")
     public AjaxResult wxLogin(String code) {
@@ -63,7 +72,7 @@ public class WeChatController {
                 Map map = new HashMap();
                 map.put("token", token);
                 map.put("uid", wxUser.getId());
-                redisService.set(token,wxUser,1800L);//一个月的token 2592000L
+                redisService.set(token,wxUser,2592000L);//一个月的token 2592000L
                 return new AjaxResult(AjaxResult.WX_TOKEN, "生成Token", map);
             }
             return new AjaxResult(AjaxResult.SUCCESS, "去注册", strResult);

@@ -106,6 +106,12 @@ public class RedisService {
         list.rightPush(k,v);
     }
 
+    public List<Object> getChatCache(String k){
+        ListOperations<String, Object> list = redisTemplate.opsForList();
+        Long                           size = list.size(k);
+        return list.range(k,size-5,size-1);
+    }
+
     /**
      * 列表获取
      */
