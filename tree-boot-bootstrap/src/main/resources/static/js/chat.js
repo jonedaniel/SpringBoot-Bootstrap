@@ -33,11 +33,17 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/hello", {}, JSON.stringify($("#name").val()));
+    stompClient.send("/app/webChat", {}, JSON.stringify($("#name").val()));
 }
 
 function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    messages = message.split(",");
+    console.log(messages)
+    if (messages.length == 1) {
+        $("#greetings").append("<tr><td>" + messages[0] + "</td></tr>");
+    } else if (messages.length == 3) {
+        $("#greetings").append("<tr><td><img src="+messages[2]+" style='width:30px;height:30px;'>"+messages[1]+":"+messages[0]+"</td>< /tr>");
+    }
 }
 
 $(function () {
