@@ -37,7 +37,7 @@ function sendName() {
 }
 
 function showGreeting(message) {
-    messages = message.split(",");
+    messages = message.split("|");
     console.log(messages)
     if (messages.length == 1) {
         $("#greetings").append("<tr><td>" + messages[0] + "</td></tr>");
