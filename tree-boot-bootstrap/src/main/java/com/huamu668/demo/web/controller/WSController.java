@@ -39,7 +39,7 @@ public class WSController extends BaseController {
         map.put("ret", message.getDate() + " " + message.getInputData());
         redisService.lPush("chatCache", map);
 
-        return message.getDate() + "," + message.getInputData() + "," + message.getImage();
+        return message.getDate() + "|" + message.getInputData() + "|" + message.getImage();
     }
 
     @MessageMapping("/webChat")
