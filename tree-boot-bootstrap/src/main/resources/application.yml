@@ -7,5 +7,17 @@ mybatis:
 spring:
   profiles:
     active: prod
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    enabled-by-default: true
+  endpoint:
+    health:
+      show-details: always
+  server:
+    port: 9999
+
 
 
