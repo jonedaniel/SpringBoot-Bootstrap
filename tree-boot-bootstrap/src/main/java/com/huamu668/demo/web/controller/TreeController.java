@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TreeController extends BaseController{
+public class TreeController extends BaseController {
 
     @Autowired
     private ITreeService treeService;
@@ -61,7 +61,7 @@ public class TreeController extends BaseController{
 
     @GetMapping("/single")
     public String single(Model model, String name) {
-        Tree tree = treeService.getByName(name);
+        Tree tree = treeService.getByPinyinName(name);
         model.addAttribute("tree", tree);
         return "single";
 

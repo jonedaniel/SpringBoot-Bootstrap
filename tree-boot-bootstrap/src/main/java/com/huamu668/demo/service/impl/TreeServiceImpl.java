@@ -23,4 +23,9 @@ public class TreeServiceImpl implements ITreeService {
     public Tree getByName(String name) {
         return treeMapper.selectByName(name);
     }
+
+    @Override
+    public Tree getByPinyinName(String pinyinName) {
+        return treeMapper.selectByPinyinName(pinyinName);
+    }
 }

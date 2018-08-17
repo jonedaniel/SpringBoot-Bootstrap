@@ -8,4 +8,6 @@ public interface ITreeService {
     List<Tree> getAll();
 
     Tree getByName(String name);
+
+    Tree getByPinyinName(String pinyinName);
 }

@@ -8,6 +8,7 @@ import java.util.Date;
 public class Tree {
     private Long   id;
     private String name;
+    private String pinyinName;
     private String intro;
     private Date   updateTime;
     private String spec;

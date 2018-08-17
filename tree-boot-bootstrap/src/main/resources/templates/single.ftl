@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="banner-section">
 		   <h3 class="tittle">${tree.name} <i class="glyphicon glyphicon-file"></i></h3>
 			<div class="single">
-			   <img src="images/${tree.name}1.jpg" class="img-responsive" alt="" />
+			   <img src="images/${tree.pinyinName}1.jpg" class="img-responsive" alt="" />
 			    <div class="b-bottom"> 
 			      <h5 class="top"><a href="#">${tree.name}：&nbsp;${tree.spec}公分&nbsp;剩余${tree.store}课</a></h5>
 				   <p class="sub">${tree.intro}</p>

@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="rslides" id="slider4">
                          <#list list as tree>
                          <li>
-                             <img src="images/${tree.name}1.jpg" class="img-responsive" alt="${tree.name}" height="500" width="500"/>
+                             <img src="images/${tree.pinyinName}1.jpg" class="img-responsive" alt="${tree.pinyinName}" height="500" width="500"/>
                          </li>
                          </#list>
                     </ul>
@@ -90,42 +90,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="top-news">
                 <div class="top-inner">
                     <div class="col-md-6 top-text">
-                        <a href="${ctx}/single?name=垂丝海棠"><img src="images/垂丝海棠1.jpg" class="img-responsive" alt="垂丝海棠"></a>
-                        <h5 class="top"><a href="${ctx}/single">垂丝海棠</a></h5>
+                        <a href="${ctx}/single?name=chuisihaitang"><img src="images/chuisihaitang1.jpg" class="img-responsive" alt="垂丝海棠"></a>
+                        <h5 class="top"><a href="${ctx}/single?name=chuisihaitang">垂丝海棠</a></h5>
                         <p>感兴趣，请联系我们</p>
                         <p>${now?date} <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0
                         </a><a class="span_link" hrsef="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a
-                                class="span_link" href="${ctx}/single?name=垂丝海棠"><span
+                                class="span_link" href="${ctx}/single?name=chuisihaitang"><span
                                 class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
                     </div>
                     <div class="col-md-6 top-text two">
-                        <a href="${ctx}/single?name=樱花"><img src="images/樱花2.jpg" class="img-responsive" alt=""></a>
+                        <a href="${ctx}/single?name=yinghua"><img src="images/yinghua2.jpg" class="img-responsive" alt=""></a>
                         <h5 class="top"><a href="${ctx}/single">樱花</a></h5>
                         <p>感兴趣，请联系我们</p>
                         <p>${now?date} <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0
                         </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a
-                                class="span_link" href="${ctx}/single?name=樱花"><span
+                                class="span_link" href="${ctx}/single?name=yinghua"><span
                                 class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="top-inner second">
                     <div class="col-md-6 top-text">
-                        <a href="${ctx}/single?name=紫薇"><img src="images/紫薇3.jpg" class="img-responsive" alt=""></a>
-                        <h5 class="top"><a href="${ctx}/single">紫薇</a></h5>
+                        <a href="${ctx}/single?name=ziwei"><img src="images/ziwei3.jpg" class="img-responsive" alt=""></a>
+                        <h5 class="top"><a href="${ctx}/single?name=ziwei">紫薇</a></h5>
                         <p>感兴趣，请联系我们</p>
                         <p>${now?date} <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0
                         </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a
-                                class="span_link" href="${ctx}/single?name=紫薇"><span
+                                class="span_link" href="${ctx}/single?name=ziwei"><span
                                 class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
                     </div>
                     <div class="col-md-6 top-text two">
-                        <a href="${ctx}/single?name=南栾树"><img src="images/南栾树1.jpg" class="img-responsive" alt=""></a>
-                        <h5 class="top"><a href="${ctx}/single">南栾树</a></h5>
+                        <a href="${ctx}/single?name=nanluanshu"><img src="images/nanluanshu1.jpg" class="img-responsive" alt=""></a>
+                        <h5 class="top"><a href="${ctx}/single?name=nanluanshu">南栾树</a></h5>
                         <p>感兴趣，请联系我们</p>
                         <p>${now?date} <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0
                         </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a
-                                class="span_link" href="${ctx}/single?name=南栾树"><span
+                                class="span_link" href="${ctx}/single?name=nanluanshu"><span
                                 class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
                     </div>
                     <div class="clearfix"></div>

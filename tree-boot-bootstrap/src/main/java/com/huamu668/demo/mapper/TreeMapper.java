@@ -19,4 +19,6 @@ public interface TreeMapper {
     int updateByPrimaryKey(Tree record);
 
     Tree selectByName(@Param("name") String name);
+
+    Tree selectByPinyinName(String pinyinName);
 }
