@@ -1,0 +1,10 @@
+@startuml
+actor user
+participant TestController << (C,#ADD1B2) >>
+participant ITestService << (I,#ADD1B2)>>
+database test
+user --> TestController : 修改请求
+TestController --> ITestService: 修改操作
+ITestService --> test : 修改
+TestController --> user : 返回修改数量
+@enduml

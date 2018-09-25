@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.huamu668.demo.web.controller.TreeController</OriginalElement>
+  <nodes>
+    <node x="181.0" y="233.0">com.huamu668.demo.web.controller.WSController</node>
+    <node x="0.0" y="157.0">com.huamu668.demo.web.controller.WeChatController</node>
+    <node x="0.0" y="233.0">com.huamu668.demo.mapper.WxUserMapper</node>
+    <node x="0.0" y="309.0">com.huamu668.demo.util.RedisService</node>
+    <node x="11.0" y="0.0">com.huamu668.demo.service.IWxUserService</node>
+    <node x="0.0" y="81.0">com.huamu668.demo.service.impl.WxUserServiceImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.huamu668.demo.service.impl.WxUserServiceImpl" target="com.huamu668.demo.service.IWxUserService">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1" x="152.49999999999994" y="169.99999999999997" />
+  <SelectedNodes>
+    <node>com.huamu668.demo.web.controller.WSController</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>Production</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

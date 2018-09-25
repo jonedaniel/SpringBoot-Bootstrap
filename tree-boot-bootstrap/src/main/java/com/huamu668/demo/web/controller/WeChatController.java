@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.huamu668.demo.common.AjaxResult;
 import com.huamu668.demo.domain.WxUser;
 import com.huamu668.demo.service.IWxUserService;
+import com.huamu668.demo.service.impl.WxUserServiceImpl;
 import com.huamu668.demo.util.HttpUtil;
 import com.huamu668.demo.util.RedisService;
 import com.huamu668.demo.util.WeChatUtil;

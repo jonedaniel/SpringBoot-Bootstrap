@@ -1,7 +1,7 @@
-MyIP: 127.0.0.1
+MyIP: 39.106.184.220
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name:  com.mysql.jdbc.Driver
     url: jdbc:mysql://${MyIP}:3306/dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: admin

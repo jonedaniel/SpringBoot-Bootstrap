@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class WSController extends BaseController {
+public class WSController {
 
     @Autowired
     private RedisService redisService;
